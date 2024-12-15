@@ -1,4 +1,4 @@
-# Maisy Dunlavy : Relevant samples of my code, tutorials and educational programs 
+# Maisy Dunlavy : Relevant samples of my code, tutorials I've written, writing samples, and other relevant work
 
 ### Publications: 
 
@@ -9,13 +9,11 @@
 
 (2025) Anomaly Detection Benchmark Suite : Open Source Code Release 
 
-### Current Projects: 
+### Coding Projects: 
 
 Voting Machine (HERE)
 
 Cache Simulator (HERE)
-
-### Previous Projects: 
 
 Anagrams in Haskell (HERE)
 
@@ -25,6 +23,10 @@ Maze Solution (HERE)
 ### Tutorials: 
 
 Pytorch Beginners Tutorial ([HERE](https://github.com/UNM-CARC/QuickBytes/blob/master/PyTorch_Classifier_Xena%20.ipynb))
+
+### UNM Computer Science Bootcamp
+
+Video Series ([HERE](https://www.youtube.com/@unmcsbootcamp))
 
 
 ### Writing Samples: 
