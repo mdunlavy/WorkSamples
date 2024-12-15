@@ -1,5 +1,5 @@
 # Maisy Dunlavy 
-## Relevant samples of my code, tutorials I've written, writing samples, and other relevant work
+## Relevant samples of my code, writing, tutorials, and other relevant work
 
 ### Publications: 
 
