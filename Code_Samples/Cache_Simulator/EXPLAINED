@@ -1,0 +1,18 @@
+explanation for improvements
+
+32x32 Matrix 
+When I first attempted this matrix, I started with a basic row-wise transpose. Theoretically it was correct, but the performance was awful. I got over 1000 misses my first attempt. I eventually figured out that the problem was that I was accessing the matrix row by row, which meant jumping across cache lines all the time. I tried splitting the matrix into smaller chunks and after trying 2x2 and 4x4, I found that 8x8 gave me he best performance, but I was still over the limit. I looked carefully through the trace fule output and realized that I likely needed to handle diagonal elements separately, since they were being read and written too many times. Once I realized this, I added a few lines of code to cache the diagonal values temporarily and write them back after finishing the block.
+
+64x64 Matrix 
+The 64×64 matrix was a whole different beast and actually the hardest one for me. My first attempt was to just reuse the 
+blocking scheme from the 32x32 transpose, but it didn’t work as well. I ended up with over 4000 misses due to the larger size. My next step was to look at smaller subblocks just in case, but trying 4x4 or 2x2 made things worse. I tried values larger than 8 as well, but those still didn't help me get away from the 4,000 miss range, so I had to rethink the approach a bit. I went back to 8x8 and tried to handle the entire diagonal blocks differently from non-diagonal ones. For non-diagonal blocks, I just transposed them directly. For diagonal blocks, I cached the diagonal values temporarily and wrote them back after the rest of the block. That got the misses down to about 1860. It was similar to the 32x32 solution, but took me longer than it should have to figure out that I needed to treat the the whole diagonal blocks differently and not just certain elements. 
+
+
+61x67 Matrix 
+This one was pretty challenging because of the irregular dimensions, but still somehow a bit easier for me than 64x64. My first try used 8×8 blocks, but that left me with a ton of leftover rows and columns that I was able to work out from the trace. I tried handling these leftovers separately, but it added a lot of redundant work, and the misses increased to over 3000. Again I decided to just try adjusting block size before I tried anything else. When I went smaller the performance was terrible, as to be expected, but as soon as I tried 16×16 blocks the performance was much better, although still a bit above where it needed to be. Instead of processing leftovers in a separate loop, I modified my code to adjust the block size dynamically at the edges of the matrix so that the leftovers were handled within the main loop. This change brought the misses down to slightly below 2000. 
+
+Sources: 
+
+https://wgropp.cs.illinois.edu/courses/cs598-s15/lectures/lecture07.pdf?utm.com
+
+https://csapp.cs.cmu.edu/public/waside/waside-blocking.pdf
