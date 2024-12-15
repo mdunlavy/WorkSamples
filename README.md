@@ -24,10 +24,13 @@ Maze Solution (HERE)
 
 ### Tutorials: 
 
-Pytorch Beginners Tutorial (HERE)
+Pytorch Beginners Tutorial ([HERE](https://github.com/UNM-CARC/QuickBytes/blob/master/PyTorch_Classifier_Xena%20.ipynb))
+
 
 ### Writing Samples: 
 
 HPL Optimization Study (HERE)
 
 HPCH Optimization Study (HERE)
+
+Winter Classic Invitational ORNL Challenge (HERE)
